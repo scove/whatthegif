@@ -2,12 +2,25 @@
   <html>
     <head>
       <meta charset="UTF-8">
-      <title>Hello World!</title>
+      <title>What the GIF?!</title>
     </head>
     <body>
-      <h1>Hello World!</h1>
+
       We are using node <script>document.write(process.versions.node)</script>,
       Chrome <script>document.write(process.versions.chrome)</script>,
       and Electron <script>document.write(process.versions.electron)</script>.
+      <script>
+        var GphApiClient = require('giphy-js-sdk-core')
+        client = GphApiClient("cUoIFTUc4R2X77xpQZc8AAgKLA0Uvmla")
+        client.random('gifs', {})
+        .then((response) => {
+          response.data.forEach((gifObject) => {
+            console.log(gifObject)
+          })
+        })
+        .catch((err) => {
+
+        })
+      </script>
     </body>
   </html>
