@@ -3,11 +3,43 @@
     <head>
       <meta charset="UTF-8">
       <title>Hello World!</title>
+      <link rel="stylesheet" href="main.css">
     </head>
     <body>
-      <h1>Hello World!</h1>
-      We are using node <script>document.write(process.versions.node)</script>,
-      Chrome <script>document.write(process.versions.chrome)</script>,
-      and Electron <script>document.write(process.versions.electron)</script>.
+      <div class="game">
+        <h1>What the Gif?!</h1>
+        <div class="prompt">
+          <button class="prompt-questions"> Next question: </button>
+
+        </div>
+        <div class="search">
+          <p>Search your gif:</p>
+          <input type="text"></input>
+          <div class="result">
+
+          </div>
+        </div>
+        <div class="players">
+          <table class="players-table">
+            <tr>
+              <td><h1>Players</h1></td>
+              <td><h1> Score </h1></td>
+            </tr>
+            <tr>
+              <td><h2> Player 1 </h2></td>
+              <td><p> 0 </p></td>
+            </tr>
+            <tr>
+              <td><h2> Player 2</h2></td>
+              <td><p> 0 </p></td>
+            </tr>
+            <tr>
+              <td><h2> Player 3</h2></td>
+              <td><p> 0 </p></td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
     </body>
   </html>

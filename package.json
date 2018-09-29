@@ -19,5 +19,8 @@
   "homepage": "https://github.com/scove/whatthegif#readme",
   "devDependencies": {
     "electron": "^3.0.2"
+  },
+  "dependencies": {
+    "electron-context-menu": "^0.10.0"
   }
 }
