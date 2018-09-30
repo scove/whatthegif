@@ -15,6 +15,30 @@ var questions = [
 ]
 var starting_index = 0
 
+function parseURL(url) {
+  var result = ""
+  var scheme = ""
+
+  if (url.substr(0, 8) === "https://") {
+    scheme = "https://"
+    url = url.slice(8)
+  } else if (url.substr(0, 7) === "http://") {
+    scheme = "http://"
+    url = url.slice(7)
+  }
+
+  var components = url.split('/')
+  var hostname = components[0]
+  var path = components[1]
+  var gifIdPath = components[2]
+  var gifIdArr = gifIdPath.split('-')
+  var gifId = gifIdArr[gifIdArr.length - 1]
+
+  result = scheme + hostname + '/embed/' + gifId
+
+  return result
+}
+
 function displayQuestion() {
   document.getElementById("question").innerHTML = questions[0]
 
@@ -45,15 +69,25 @@ function processSearchGIF() {
   client.random('gifs', {"tag": keyword})
   .then((response) => {
     // TODO: ask to see if we can get the embedded version here
-    // var gifURL = response.data.url
-    // var div = document.createElement('div')
-    // div.className = 'gif-img';
-    // div.innerHTML = '<img src="' + gifURL + '">'
-    //
-    // document.getElementById('gif-result').appendChild(div)
+    var gifURL = response.data.url
+    var embeddedGifURL = parseURL(gifURL)
+    var div = document.createElement('div')
+    div.className = 'gif-img';
+    div.innerHTML =
+      '<iframe src="' + embeddedGifURL + '"\
+               width="469" height="480"\
+               frameBorder="0" class="giphy-embed"\
+               allowFullScreen></iframe>\
+      <p>\
+        <a href="' + gifURL + '">\
+          via GIPHY\
+        </a>\
+      </p>'
+
+    document.getElementById('gif-result').appendChild(div)
   })
   .catch((err) => {
-
+    console.log('There is some error while trying to get your gif: ', err, ':(')
   })
 
 }
