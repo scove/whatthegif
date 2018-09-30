@@ -16,5 +16,6 @@ Run these scripts:
 
 `
 npm install
+
 npm start
 `
