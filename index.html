@@ -7,16 +7,25 @@
     </head>
     <body>
       <div class="game">
+        <audio id="myAudio">
+          <source src="stereo-love.mp3" type="audio/mp3">
+          Your browser does not support the audio element.
+        </audio>
         <h1>What the Gif?!</h1>
+        <button id="play-music"> Play Music </button>
         <div class="prompt">
-          <p class="question"></p>
-          <button class="next-question"> Next question: </button>
+          <p id="question" class="question"></p>
+          <button id="next-question" class="next-question"> Next question: </button>
         </div>
         <div class="search">
           <p>Search your gif:</p>
-          <input type="text"></input>
-          <div class="result">
-
+          <input id="searchbox-gif" type="text"></input>
+          <button id="search-gif"> Search for GIF </button>
+          <button id="clear-gif"> Clear GIF </button>
+          <button id="show-gif"> Show Result </button>
+          <div id="gif-result" class="result hidden">
+            <div id="gif-result-container">
+            </div>
           </div>
         </div>
         <div class="players">
@@ -27,15 +36,17 @@
             </tr>
             <tr>
               <td><h2> Player 1 </h2></td>
-              <td><p> 0 </p></td>
+              <td>
+                <p id="player1-score">  </p>
+                <button id="increment-1"> Add score </button>
+              </td>
             </tr>
             <tr>
               <td><h2> Player 2</h2></td>
-              <td><p> 0 </p></td>
-            </tr>
-            <tr>
-              <td><h2> Player 3</h2></td>
-              <td><p> 0 </p></td>
+              <td>
+                <p id="player2-score">  </p>
+                <button id="increment-2"> Add score </button>
+              </td>
             </tr>
           </table>
 

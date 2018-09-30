@@ -12,8 +12,8 @@ require('electron-context-menu')({
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({
-    width: 800,
-    height: 600,
+    width: 1500,
+    height: 900,
     webPreferences: {
       allowRunningInsecureContent: true
     }
