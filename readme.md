@@ -14,8 +14,8 @@ You have to have nodejs installed
 
 Run these scripts:
 
-`
+```
 npm install
 
 npm start
-`
+```
