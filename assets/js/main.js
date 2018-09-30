@@ -62,7 +62,32 @@ function getGifButton() {
   document.getElementById('search-gif').addEventListener("click", processSearchGIF)
 }
 
+function initScrore() {
+  document.getElementById('player1-score').innerHTML = 0
+  document.getElementById('player2-score').innerHTML = 0
+}
+
+function incrementScore(currPlayerId) {
+  var currScore = parseInt(document.getElementById(currPlayerId).innerHTML)
+  document.getElementById(currPlayerId).innerHTML = currScore + 1
+}
+
+function incrementScoreAction(playerButtonId) {
+  var playerScoreId = ""
+  if (playerButtonId === "increment-1") {
+    playerScoreId = "player1-score"
+  } else {
+    playerScoreId = "player2-score"
+  }
+  document.getElementById(playerButtonId).addEventListener("click", function() {
+    incrementScore(playerScoreId)
+  })
+}
+
 (function() {
   displayQuestion();
   getGifButton();
+  initScrore();
+  incrementScoreAction('increment-1')
+  incrementScoreAction('increment-2')
 })();
