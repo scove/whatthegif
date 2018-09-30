@@ -134,6 +134,13 @@ function showGIF() {
   })
 }
 
+function turnOnMusic() {
+  document.getElementById('play-music').addEventListener('click', function() {
+    var x = document.getElementById("myAudio");
+    x.play();
+  })
+}
+
 (function() {
   displayQuestion();
   getGifButton();
@@ -142,4 +149,5 @@ function showGIF() {
   incrementScoreAction('increment-2')
   clearGif()
   showGIF()
+  turnOnMusic()
 })();
