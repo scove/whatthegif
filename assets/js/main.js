@@ -118,10 +118,17 @@ function incrementScoreAction(playerButtonId) {
   })
 }
 
+function clearGif() {
+  document.getElementById('clear-gif').addEventListener('click', function() {
+    document.getElementById('gif-result').innerHTML = ''
+  })
+}
+
 (function() {
   displayQuestion();
   getGifButton();
   initScrore();
   incrementScoreAction('increment-1')
   incrementScoreAction('increment-2')
+  clearGif()
 })();
