@@ -72,7 +72,7 @@ function processSearchGIF() {
     var gifURL = response.data.url
     var embeddedGifURL = parseURL(gifURL)
     var div = document.createElement('div')
-    div.className = 'gif-img';
+    div.className = 'gif-img'
     div.innerHTML =
       '<iframe src="' + embeddedGifURL + '"\
                width="469" height="480"\
@@ -84,7 +84,7 @@ function processSearchGIF() {
         </a>\
       </p>'
 
-    document.getElementById('gif-result').appendChild(div)
+    document.getElementById('gif-result-container').appendChild(div)
   })
   .catch((err) => {
     console.log('There is some error while trying to get your gif: ', err, ':(')
@@ -120,7 +120,13 @@ function incrementScoreAction(playerButtonId) {
 
 function clearGif() {
   document.getElementById('clear-gif').addEventListener('click', function() {
-    document.getElementById('gif-result').innerHTML = ''
+    document.getElementById('gif-result-container').innerHTML = ''
+  })
+}
+
+function showGIF() {
+  document.getElementById('show-gif').addEventListener('click', function() {
+    document.getElementById('gif-result').classList.remove("hidden")
   })
 }
 
@@ -131,4 +137,5 @@ function clearGif() {
   incrementScoreAction('increment-1')
   incrementScoreAction('increment-2')
   clearGif()
+  showGIF()
 })();
