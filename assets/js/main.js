@@ -70,6 +70,9 @@ function processSearchGIF() {
   .then((response) => {
     // TODO: ask to see if we can get the embedded version here
     var gifURL = response.data.url
+    if (!gifURL) {
+      console.log('There is no such thing dude! :(')
+    }
     var embeddedGifURL = parseURL(gifURL)
     var div = document.createElement('div')
     div.className = 'gif-img'
@@ -121,6 +124,7 @@ function incrementScoreAction(playerButtonId) {
 function clearGif() {
   document.getElementById('clear-gif').addEventListener('click', function() {
     document.getElementById('gif-result-container').innerHTML = ''
+    document.getElementById('gif-result').classList.add("hidden")
   })
 }
 
