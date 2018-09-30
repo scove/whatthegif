@@ -2,24 +2,46 @@
   <html>
     <head>
       <meta charset="UTF-8">
-      <title>What the GIF?!</title>
+      <title>Hello World!</title>
+      <link rel="stylesheet" href="./assets/css/main.css">
     </head>
     <body>
+      <div class="game">
+        <h1>What the Gif?!</h1>
+        <div class="prompt">
+          <button class="prompt-questions"> Next question: </button>
 
-      We are using node <script>document.write(process.versions.node)</script>,
-      Chrome <script>document.write(process.versions.chrome)</script>,
-      and Electron <script>document.write(process.versions.electron)</script>.
-      <script>
-        var GphApiClient = require('giphy-js-sdk-core')
-        client = GphApiClient("cUoIFTUc4R2X77xpQZc8AAgKLA0Uvmla")
-        /// Gif Search
-        client.random('gifs', {})
-        .then((response) => {
-          console.log(response)
-        })
-        .catch((err) => {
+        </div>
+        <div class="search">
+          <p>Search your gif:</p>
+          <input type="text"></input>
+          <div class="result">
 
-        })
-      </script>
+          </div>
+        </div>
+        <div class="players">
+          <table class="players-table">
+            <tr>
+              <td><h1>Players</h1></td>
+              <td><h1> Score </h1></td>
+            </tr>
+            <tr>
+              <td><h2> Player 1 </h2></td>
+              <td><p> 0 </p></td>
+            </tr>
+            <tr>
+              <td><h2> Player 2</h2></td>
+              <td><p> 0 </p></td>
+            </tr>
+            <tr>
+              <td><h2> Player 3</h2></td>
+              <td><p> 0 </p></td>
+            </tr>
+          </table>
+
+        </div>
+      </div>
+
+      <script src="./assets/js/main.js"></script>
     </body>
   </html>
