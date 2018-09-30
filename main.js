@@ -1,8 +1,7 @@
 const { app, BrowserWindow } = require('electron')
-// Importing this adds a right-click menu with 'Inspect Element' option
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+let win
+process.env['ELECTRON_DISABLE_SECURITY_WARNINGS'] = true;
 
 require('electron-context-menu')({
     prepend: (params, browserWindow) => [{
@@ -10,11 +9,15 @@ require('electron-context-menu')({
     }]
 });
 
-let win
-
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      allowRunningInsecureContent: true
+    }
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
@@ -52,6 +55,3 @@ app.on('activate', () => {
     createWindow()
   }
 })
-
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
