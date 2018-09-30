@@ -1,7 +1,7 @@
 "use strict";
 
 // create your own app on giphy
-var API_KEY = "Uyif5WgGhFtXX7g8Dw0cN7UyiWNhRmdm"
+var API_KEY = ""
 
 var GphApiClient = require('giphy-js-sdk-core')
 var client = GphApiClient(API_KEY)
@@ -29,18 +29,40 @@ function displayQuestion() {
   document.getElementById("next-question").addEventListener("click", getQuestion)
 }
 
-function getGIF() {
-  /// Gif Search
-  client.random('gifs', {})
-  .then((response) => {
+function processSearchGIF() {
+  var keyword = document.getElementById('searchbox-gif').value
 
+  // client.search('gifs', {"q": keyword})
+  // .then((response) => {
+  //   response.data.forEach((gifObject) => {
+  //     console.log
+  //   })
+  // })
+  // .catch((err) => {
+  //
+  // })
+
+  client.random('gifs', {"tag": keyword})
+  .then((response) => {
+    // TODO: ask to see if we can get the embedded version here
+    // var gifURL = response.data.url
+    // var div = document.createElement('div')
+    // div.className = 'gif-img';
+    // div.innerHTML = '<img src="' + gifURL + '">'
+    //
+    // document.getElementById('gif-result').appendChild(div)
   })
   .catch((err) => {
-    console.log("there is some error while loading the gif", err)
+
   })
+
+}
+
+function getGifButton() {
+  document.getElementById('search-gif').addEventListener("click", processSearchGIF)
 }
 
 (function() {
   displayQuestion();
-  getGIF();
+  getGifButton();
 })();
